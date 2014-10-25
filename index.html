@@ -1,21 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>GitHub Profile Search</title>
+	<link rel ="stylesheet" href="style.css">
 </head>
 <body>
 	<main>
 	<section>
-		<input type="text" id="profile_name" placeholder="Enter the name of the github profile you want to fetch"/>
-		<a href="#" id="fetch_github_profile">Fetch</a>
+		<p>
+			<input type="text" id="profile_name" placeholder="Enter the name of the github profile you want to fetch"/>
+		</p>
+		<p>
+			<a href="#" id="fetch_github_profile">Fetch</a>
+		</p>
 	</section>
 	<section id="profiles">
 	</section>
 	</main>
 	<template id="profile_template">
-	<article>
-		<header>
+	<article id="profile">
+			<aside>
 			<img src="{{avatar_url}}"/>
+			</aside>
+			<article id="profile_details">
+		<header>
 			<h1>{{login}}</h1>
 			<h2>{{name}}</h2>
 		</header>
@@ -24,6 +32,7 @@
 			<br>
 			<strong id='repos'>Public Repositories: {{public_repos}}</strong>
 		</p>
+		</article>
 	</article>
 	</template>
 	<script type="text/javascript" src="jquery.js"></script>
