@@ -2,6 +2,7 @@ body {
 	text-align: center;
 	background-color: #A6384C;
 	font-family: sans-serif;
+	color: #1F1A40
 }
 
 input {
@@ -14,7 +15,7 @@ input {
 
 a {
 	text-decoration: none;
-	color: black;
+	color: #1F1A40;
 	font-size: 35px
 }
 

@@ -24,29 +24,42 @@
 			</aside>
 			<article id="profile_details">
 		<header>
-			<h1>{{login}}</h1>
-			<h2>{{name}}</h2>
+			<h2 id="login">{{login}}</h2>
+			<h1>{{name}}</h1>
 		</header>
 		<p>
-			<strong id='followers'>Followers: {{followers}}</strong>
+			<strong id='followers'>{{followers}} followers</strong>
 			<br>
-			<strong id='repos'>Public Repositories: {{public_repos}}</strong>
+			<strong id='repos'>{{public_repos}} public repositories</strong>
 		</p>
 		</article>
+		<a href="#" id="close">X</a>
 	</article>
 	</template>
 	<script type="text/javascript" src="jquery.js"></script>
 	<script type="text/javascript" src="handlebars.js"></script>
 	<script>
 	$('#fetch_github_profile').on('click', function(){
-			var source = $('#profile_template').html();
-			var template = Handlebars.compile(source);
-			var profileName = $('#profile_name').val()
-			$.get('https://api.github.com/users/' + profileName, function(gitHubProfile){
-				$('#profiles').prepend(template(gitHubProfile))
-			});
-
+		var source = $('#profile_template').html();
+		var template = Handlebars.compile(source);
+		var profileName = $('#profile_name').val()
+		$.get('https://api.github.com/users/' + profileName, function(gitHubProfile){
+			$('#profiles').prepend(template(gitHubProfile))
+		});
 	});
+
+	$( "#profiles" ).on( "click", "#close", function() {
+		event.preventDefault();
+		var profile = this.parentElement;
+		profile.parentElement.removeChild(profile);
+	});
+
+
+
+
+
+
+
 	</script>
 </body>
 </html>
