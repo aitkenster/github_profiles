@@ -39,10 +39,15 @@
 	<script type="text/javascript" src="jquery.js"></script>
 	<script type="text/javascript" src="handlebars.js"></script>
 	<script>
+
+	
+
 	$('#fetch_github_profile').on('click', function(){
 		var source = $('#profile_template').html();
 		var template = Handlebars.compile(source);
 		var profileName = $('#profile_name').val()
+		document.getElementById("profile_name").value=""
+	
 		$.get('https://api.github.com/users/' + profileName, function(gitHubProfile){
 			$('#profiles').prepend(template(gitHubProfile))
 		});
